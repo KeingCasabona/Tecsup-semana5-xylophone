@@ -22,14 +22,45 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            AudioPlayer player = AudioPlayer();
-            player.play(AssetSource('audios/note3.wav'));
-          },
-          child: Text('Click'),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        centerTitle: true,
+        title: Text(
+          'Xylophone',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: Container(
+              color: Colors.red,
+              child: TextButton(
+                onPressed: () {
+                  AudioPlayer player = AudioPlayer();
+                  player.play(AssetSource('audios/note1.wav'));
+                },
+                child: Text(''),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              color: Colors.blueAccent,
+              child: TextButton(
+                onPressed: () {
+                  AudioPlayer player = AudioPlayer();
+                  player.play(AssetSource('audios/note2.wav'));
+                },
+                child: Text(''),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
